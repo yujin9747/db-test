@@ -1,7 +1,12 @@
-import { Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { IsUUID } from "class-validator";
 
 @Entity('node')
 export class NodeEntity {
-  @PrimaryGeneratedColumn()
-  id: number;
+  @IsUUID()
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
+  @Column()
+  name: string;
 }

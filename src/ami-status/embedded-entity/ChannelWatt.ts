@@ -1,12 +1,12 @@
 import { Column } from 'typeorm';
 
 export class ChannelWatt {
-  @Column()
+  @Column({ name: '1' })
   watt1: number;
 
-  @Column()
+  @Column({ name: '2' })
   watt2: number;
 
-  @Column()
+  @Column({ name: '3' })
   watt3: number;
 }

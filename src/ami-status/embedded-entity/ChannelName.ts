@@ -1,12 +1,12 @@
 import { Column } from 'typeorm';
 
 export class ChannelName {
-  @Column()
-  channelName1: string;
+  @Column({ name: '1' })
+  name1: string;
 
-  @Column()
-  channelName2: string;
+  @Column({ name: '2' })
+  name2: string;
 
-  @Column()
-  channelName3: string;
+  @Column({ name: '3' })
+  name3: string;
 }

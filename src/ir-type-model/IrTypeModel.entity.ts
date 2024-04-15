@@ -7,12 +7,12 @@ export class IrTypeModelEntity {
   @PrimaryGeneratedColumn()
   id: string;
 
-  // @Column({
-  //   type: 'enum',
-  //   enum: IrDeviceType,
-  //   default: IrDeviceType.AIRCONDITIONER_CONTROLLER,
-  // })
-  // type: IrDeviceType;
+  @Column({
+    type: 'enum',
+    enum: IrDeviceType,
+    default: IrDeviceType.AIRCONDITIONER_CONTROLLER,
+  })
+  type: IrDeviceType;
 
   @Column()
   model: string;

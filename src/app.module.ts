@@ -11,8 +11,10 @@ import { NodeEntity } from "./Node.entity";
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'sqlite',
-      database: 'db',
+      type: 'mysql',
+      database: 'test',
+      username: 'root',
+      password: 'slsddbwls4421',
       entities: [
         AirconDeviceStatusEntity,
         AmiStatusEntity,

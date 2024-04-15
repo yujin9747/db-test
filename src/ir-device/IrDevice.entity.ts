@@ -5,6 +5,9 @@ import {
   OneToOne,
   PrimaryGeneratedColumn,
   Entity,
+  AfterInsert,
+  AfterUpdate,
+  BeforeRemove,
 } from 'typeorm';
 
 import { NodeEntity } from '../Node.entity';
@@ -14,7 +17,7 @@ import { IrDeviceType } from '../shared/enum/IrDeviceType';
 @Entity('ir_device')
 export class IrDeviceEntity extends DateBaseEntity {
   @IsUUID(4, { message: 'id is not a valid uuid' })
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @JoinColumn({ name: 'nodeId' })
@@ -28,4 +31,19 @@ export class IrDeviceEntity extends DateBaseEntity {
   @JoinColumn({ name: 'irTypeId' })
   @ManyToOne(() => IrDeviceEntity, { lazy: true })
   type: IrDeviceType;
+
+  @AfterInsert()
+  logInsert() {
+    console.log('Inserted ir_device with id ', this.id);
+  }
+
+  @AfterUpdate()
+  logUpdate() {
+    console.log('Updated ir_device with id ', this.id);
+  }
+
+  @BeforeRemove()
+  logRemove() {
+    console.log('Removed ir_device with id ', this.id);
+  }
 }
