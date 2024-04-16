@@ -1,9 +1,9 @@
 import { Column } from 'typeorm';
 
 export class Temperature {
-  @Column({ name: 'currentTemperature' })
+  @Column({ name: 'currentTemperature', type: 'float' })
   currentTemperature: number;
 
-  @Column({ name: 'settingTemperature' })
+  @Column({ name: 'settingTemperature', type: 'float' })
   settingTemperature: number;
 }

@@ -1,5 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
-import { IsUUID } from "class-validator";
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { IsUUID } from 'class-validator';
 
 @Entity('node')
 export class NodeEntity {

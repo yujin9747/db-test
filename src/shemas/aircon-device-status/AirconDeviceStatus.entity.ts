@@ -15,8 +15,8 @@ import { Temperature } from './embedded-entity/Temperature';
 import { AirconMode } from './enum/AirconMode';
 import { FanSpeed } from './enum/FanSpeed';
 import { Power } from './enum/Power';
-import { NodeEntity } from '../Node.entity';
 import { IrDeviceEntity } from '../ir-device/IrDevice.entity';
+import { NodeEntity } from '../../Node.entity';
 
 @Entity('aircon_device_status')
 export class AirconDeviceStatusEntity extends BaseEntity {
@@ -38,21 +38,18 @@ export class AirconDeviceStatusEntity extends BaseEntity {
   @Column({
     type: 'enum',
     enum: AirconMode,
-    default: AirconMode.AUTO,
   })
   mode: AirconMode;
 
   @Column({
     type: 'enum',
     enum: FanSpeed,
-    default: FanSpeed.AUTO,
   })
   fanSpeed: FanSpeed;
 
   @Column({
     type: 'enum',
     enum: Power,
-    default: Power.OFF,
   })
   power: Power;
 

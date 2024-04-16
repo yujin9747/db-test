@@ -10,9 +10,9 @@ import {
   BeforeRemove,
 } from 'typeorm';
 
-import { NodeEntity } from '../Node.entity';
+import { NodeEntity } from '../../Node.entity';
 import { DateBaseEntity } from '../shared/base/DateBase.entity';
-import { IrDeviceType } from '../shared/enum/IrDeviceType';
+import { IrTypeModelEntity } from '../ir-type-model/IrTypeModel.entity';
 
 @Entity('ir_device')
 export class IrDeviceEntity extends DateBaseEntity {
@@ -21,7 +21,11 @@ export class IrDeviceEntity extends DateBaseEntity {
   id: string;
 
   @JoinColumn({ name: 'nodeId' })
-  @ManyToOne(() => NodeEntity, { lazy: true })
+  @ManyToOne(() => NodeEntity, {
+    lazy: true,
+    nullable: false,
+    onDelete: 'CASCADE',
+  })
   irBulb: NodeEntity;
 
   @JoinColumn({ name: 'readerDeviceId' })
@@ -29,8 +33,8 @@ export class IrDeviceEntity extends DateBaseEntity {
   readerDevice: NodeEntity;
 
   @JoinColumn({ name: 'irTypeId' })
-  @ManyToOne(() => IrDeviceEntity, { lazy: true })
-  type: IrDeviceType;
+  @ManyToOne(() => IrTypeModelEntity, { lazy: true, nullable: false })
+  type: IrTypeModelEntity;
 
   @AfterInsert()
   logInsert() {

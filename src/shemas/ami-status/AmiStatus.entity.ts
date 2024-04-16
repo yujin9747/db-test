@@ -11,7 +11,7 @@ import {
 } from 'typeorm';
 
 import { AmiMode } from './enum/AmiMode';
-import { NodeEntity } from '../Node.entity';
+import { NodeEntity } from '../../Node.entity';
 import { DateBaseEntity } from '../shared/base/DateBase.entity';
 import { ChannelName } from './embedded-entity/ChannelName';
 import { ChannelWatt } from './embedded-entity/ChannelWatt';
@@ -24,13 +24,14 @@ export class AmiStatusEntity extends DateBaseEntity {
   id: string;
 
   @JoinColumn({ name: 'nodeId' })
-  @OneToOne(() => NodeEntity)
+  @OneToOne(() => NodeEntity, {
+    onDelete: 'CASCADE',
+  })
   ami: NodeEntity;
 
   @Column({
     type: 'enum',
     enum: AmiMode,
-    default: AmiMode.MODE1,
   })
   mode: AmiMode;
 

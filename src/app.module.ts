@@ -2,19 +2,27 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AirconDeviceStatusEntity } from './aircon-device-status/AirconDeviceStatus.entity';
-import { AmiStatusEntity } from './ami-status/AmiStatus.entity';
-import { IrDeviceEntity } from './ir-device/IrDevice.entity';
-import { IrTypeModelEntity } from './ir-type-model/IrTypeModel.entity';
-import { NodeEntity } from "./Node.entity";
+import { AirconDeviceStatusEntity } from './shemas/aircon-device-status/AirconDeviceStatus.entity';
+import { AmiStatusEntity } from './shemas/ami-status/AmiStatus.entity';
+import { IrDeviceEntity } from './shemas/ir-device/IrDevice.entity';
+import { IrTypeModelEntity } from './shemas/ir-type-model/IrTypeModel.entity';
+import { NodeEntity } from './Node.entity';
+import { IrTypeModelService } from './infra/IrTypeModel.service';
+import { IrTypeModelController } from './presentation/IrTypeModel.controller';
+import { AmiStatusController } from './presentation/AmiStatus.controller';
+import { AmiStatusService } from './infra/AmiStatus.service';
+import { IrDeviceService } from './infra/IrDevice.service';
+import { IrDeviceController } from './presentation/IrDevice.controller';
+import { AirconDeviceStatusService } from './infra/AirconDeviceStatus.service';
+import { AirconDeviceStatusController } from './presentation/AirconDeviceStatus.controller';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
       database: 'test',
-      username: 'root',
-      password: 'slsddbwls4421',
+      username: 'test',
+      password: 'mysqlpassword',
       entities: [
         AirconDeviceStatusEntity,
         AmiStatusEntity,
@@ -25,8 +33,27 @@ import { NodeEntity } from "./Node.entity";
       synchronize: true,
       logging: true,
     }),
+    TypeOrmModule.forFeature([
+      AirconDeviceStatusEntity,
+      AmiStatusEntity,
+      IrDeviceEntity,
+      IrTypeModelEntity,
+      NodeEntity,
+    ]),
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [
+    AppController,
+    IrTypeModelController,
+    AmiStatusController,
+    IrDeviceController,
+    AirconDeviceStatusController,
+  ],
+  providers: [
+    AppService,
+    IrTypeModelService,
+    AmiStatusService,
+    IrDeviceService,
+    AirconDeviceStatusService,
+  ],
 })
 export class AppModule {}
