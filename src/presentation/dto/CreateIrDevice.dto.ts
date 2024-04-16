@@ -1,4 +1,7 @@
+import { IrDeviceType } from '../../shemas/shared/enum/IrDeviceType';
+
 export class CreateIrDeviceDto {
   irBulbId: string;
-  irTypeId: number;
+  type: IrDeviceType;
+  model: string;
 }

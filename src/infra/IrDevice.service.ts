@@ -21,7 +21,8 @@ export class IrDeviceService {
     }
 
     const irTypeModel = await this.irTypeModelRepo.findOneBy({
-      id: body.irTypeId,
+      type: body.type,
+      model: body.model,
     });
     if (!irTypeModel) {
       throw new NotFoundException(
@@ -31,7 +32,8 @@ export class IrDeviceService {
 
     const irDevice = this.repo.create({
       irBulb: irBulb,
-      type: irTypeModel,
+      type: irTypeModel.type,
+      model: irTypeModel.model,
     });
 
     return this.repo.save(irDevice);

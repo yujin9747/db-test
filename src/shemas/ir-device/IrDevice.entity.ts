@@ -8,11 +8,12 @@ import {
   AfterInsert,
   AfterUpdate,
   BeforeRemove,
+  Column,
 } from 'typeorm';
 
 import { NodeEntity } from '../../Node.entity';
 import { DateBaseEntity } from '../shared/base/DateBase.entity';
-import { IrTypeModelEntity } from '../ir-type-model/IrTypeModel.entity';
+import { IrDeviceType } from '../shared/enum/IrDeviceType';
 
 @Entity('ir_device')
 export class IrDeviceEntity extends DateBaseEntity {
@@ -32,9 +33,18 @@ export class IrDeviceEntity extends DateBaseEntity {
   @OneToOne(() => NodeEntity, { lazy: true, nullable: true })
   readerDevice: NodeEntity;
 
-  @JoinColumn({ name: 'irTypeId' })
-  @ManyToOne(() => IrTypeModelEntity, { lazy: true, nullable: false })
-  type: IrTypeModelEntity;
+  // @JoinColumn({ name: 'irTypeId' })
+  // @ManyToOne(() => IrTypeModelEntity, { lazy: true, nullable: false })
+  // type: IrTypeModelEntity;
+
+  @Column({
+    type: 'enum',
+    enum: IrDeviceType,
+  })
+  type: IrDeviceType;
+
+  @Column()
+  model: string;
 
   @AfterInsert()
   logInsert() {
