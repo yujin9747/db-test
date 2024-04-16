@@ -21,6 +21,9 @@ export class IrDeviceEntity extends DateBaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
+  @Column()
+  name: string;
+
   @JoinColumn({ name: 'nodeId' })
   @ManyToOne(() => NodeEntity, {
     lazy: true,

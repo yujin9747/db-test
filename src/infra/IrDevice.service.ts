@@ -31,6 +31,7 @@ export class IrDeviceService {
     }
 
     const irDevice = this.repo.create({
+      name: body.name,
       irBulb: irBulb,
       type: irTypeModel.type,
       model: irTypeModel.model,
