@@ -25,11 +25,11 @@ export class AirconDeviceStatusEntity extends BaseEntity {
   id: string;
 
   @JoinColumn({ name: 'readerDeviceId' })
-  @OneToOne(() => NodeEntity)
+  @OneToOne(() => NodeEntity, { onDelete: 'SET NULL' })
   readerDevice: NodeEntity;
 
   @JoinColumn({ name: 'irDeviceId' })
-  @OneToOne(() => IrDeviceEntity)
+  @OneToOne(() => IrDeviceEntity, { onDelete: 'SET NULL' })
   irDevice: IrDeviceEntity;
 
   @Column(() => Temperature, { prefix: false })

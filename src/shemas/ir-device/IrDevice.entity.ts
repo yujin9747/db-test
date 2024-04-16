@@ -30,12 +30,12 @@ export class IrDeviceEntity extends DateBaseEntity {
   irBulb: NodeEntity;
 
   @JoinColumn({ name: 'readerDeviceId' })
-  @OneToOne(() => NodeEntity, { lazy: true, nullable: true })
+  @OneToOne(() => NodeEntity, {
+    lazy: true,
+    nullable: true,
+    onDelete: 'SET NULL',
+  })
   readerDevice: NodeEntity;
-
-  // @JoinColumn({ name: 'irTypeId' })
-  // @ManyToOne(() => IrTypeModelEntity, { lazy: true, nullable: false })
-  // type: IrTypeModelEntity;
 
   @Column({
     type: 'enum',

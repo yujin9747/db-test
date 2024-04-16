@@ -30,8 +30,8 @@ import { AirconDeviceStatusController } from './presentation/AirconDeviceStatus.
         IrTypeModelEntity,
         NodeEntity,
       ],
-      synchronize: false,
-      // logging: true,
+      synchronize: true,
+      logging: true,
     }),
     TypeOrmModule.forFeature([
       AirconDeviceStatusEntity,
