@@ -1,23 +1,23 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-import { IrDeviceType } from '../shared/enum/IrDeviceType'
+import { IrDeviceType } from '../shared/enum/IrDeviceType';
 
 @Entity('ir_type_model')
 export class IrTypeModelEntity {
   @PrimaryGeneratedColumn()
-    id: number
+  id: number;
 
   @Column({
     type: 'varchar',
     length: 64,
-    nullable: false
+    nullable: false,
   })
-    type: IrDeviceType
+  type: IrDeviceType;
 
   @Column({
     type: 'varchar',
     length: 64,
-    nullable: false
+    nullable: false,
   })
-    model: string
+  model: string;
 }

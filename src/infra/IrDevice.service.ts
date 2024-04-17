@@ -32,7 +32,7 @@ export class IrDeviceService {
 
     const irDevice = this.repo.create({
       name: body.name,
-      irBulb: irBulb,
+      nodeId: irBulb.id,
       type: irTypeModel.type,
       model: irTypeModel.model,
     });

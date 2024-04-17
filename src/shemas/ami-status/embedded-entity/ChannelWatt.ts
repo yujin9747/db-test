@@ -1,24 +1,24 @@
-import { Column } from 'typeorm'
+import { Column } from 'typeorm';
 
 export class ChannelWatt {
   @Column({
     name: '1',
     type: 'int',
-    nullable: true
+    nullable: true,
   })
-    watt1: number
+  watt1: number;
 
   @Column({
     name: '2',
     type: 'int',
-    nullable: true
+    nullable: true,
   })
-    watt2: number
+  watt2: number;
 
   @Column({
     name: '3',
     type: 'int',
-    nullable: true
+    nullable: true,
   })
-    watt3: number
+  watt3: number;
 }

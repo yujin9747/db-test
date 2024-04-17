@@ -1,17 +1,17 @@
-import { Column } from 'typeorm'
+import { Column } from 'typeorm';
 
 export class Temperature {
   @Column({
     name: 'currentTemperature',
     type: 'int',
-    nullable: true
+    nullable: true,
   })
-    currentTemperature: number
+  currentTemperature: number;
 
   @Column({
     name: 'settingTemperature',
     type: 'int',
-    nullable: true
+    nullable: true,
   })
-    settingTemperature: number
+  settingTemperature: number;
 }

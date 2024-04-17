@@ -22,12 +22,12 @@ export class AirconDeviceStatusService {
     const irDevice = await this.irDeviceRepo.findOneBy({ id: body.irDeviceId });
 
     const airconDeviceStatus = this.repo.create({
-      readerDevice: airconReader,
-      irDevice: irDevice,
+      readerDeviceId: airconReader.id,
+      irDeviceId: irDevice.id,
       mode: body.mode,
       fanSpeed: body.fanSpeed,
       power: body.power,
-      temp: {
+      temperature: {
         currentTemperature: body.currentTemperature,
         settingTemperature: body.settingTemperature,
       },

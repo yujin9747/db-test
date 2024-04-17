@@ -3,5 +3,5 @@ export enum AirconMode {
   HEATER = 'heater',
   VENTILATOR = 'ventilator',
   DEHUMIDIFIER = 'dehumidifier',
-  AUTO = 'auto'
+  AUTO = 'auto',
 }

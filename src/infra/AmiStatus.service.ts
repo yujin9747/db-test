@@ -23,7 +23,7 @@ export class AmiStatusService {
 
     const amiStatus = this.repo.create({
       mode: body.mode,
-      ami: ami,
+      amiId: ami.id,
       channelOneName: {
         name1: body.channelName11,
         name2: body.channelName12,

@@ -1,47 +1,47 @@
-import { IsUUID } from 'class-validator'
-import { PrimaryGeneratedColumn, Entity, Column } from 'typeorm'
+import { IsUUID } from 'class-validator';
+import { PrimaryGeneratedColumn, Entity, Column } from 'typeorm';
 
-import { DateBaseEntity } from '../shared/base/DateBase.entity'
-import { IrDeviceType } from '../shared/enum/IrDeviceType'
+import { DateBaseEntity } from '../shared/base/DateBase.entity';
+import { IrDeviceType } from '../shared/enum/IrDeviceType';
 
 @Entity('ir_device')
 export class IrDeviceEntity extends DateBaseEntity {
   @IsUUID(4, { message: 'id is not a valid uuid' })
   @PrimaryGeneratedColumn('uuid')
-    id: string
+  id: string;
 
   @Column({
     type: 'varchar',
     length: 36,
-    nullable: false
+    nullable: false,
   })
-    name: string
+  name: string;
 
   @Column({
     type: 'varchar',
     length: 36,
-    nullable: false
+    nullable: false,
   })
-    nodeId: string
+  nodeId: string;
 
   @Column({
     type: 'varchar',
     length: 36,
-    nullable: true
+    nullable: true,
   })
-    readerDeviceId: string
+  readerDeviceId: string;
 
   @Column({
     type: 'varchar',
     length: 64,
-    nullable: false
+    nullable: false,
   })
-    type: IrDeviceType
+  type: IrDeviceType;
 
   @Column({
     type: 'varchar',
     length: 64,
-    nullable: false
+    nullable: false,
   })
-    model: string
+  model: string;
 }

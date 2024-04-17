@@ -1,52 +1,52 @@
-import { IsUUID } from 'class-validator'
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
+import { IsUUID } from 'class-validator';
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-import { Temperature } from './embedded-entity/Temperature'
-import { AirconMode } from './enum/AirconMode'
-import { FanSpeed } from './enum/FanSpeed'
-import { Power } from '../../domain/Power'
+import { Temperature } from './embedded-entity/Temperature';
+import { AirconMode } from './enum/AirconMode';
+import { FanSpeed } from './enum/FanSpeed';
+import { Power } from './enum/Power';
 
 @Entity('aircon_device_status')
 export class AirconDeviceStatusEntity extends BaseEntity {
   @IsUUID(4, { message: 'id is not a valid uuid' })
   @PrimaryGeneratedColumn('uuid')
-    id: string
+  id: string;
 
   @Column({
     type: 'varchar',
     length: 36,
-    nullable: true
+    nullable: true,
   })
-    readerDeviceId: string
+  readerDeviceId: string;
 
   @Column({
     type: 'varchar',
     length: 36,
-    nullable: true
+    nullable: true,
   })
-    irDeviceId: string
+  irDeviceId: string;
 
   @Column(() => Temperature, { prefix: false })
-    temperature: Temperature
+  temperature: Temperature;
 
   @Column({
     type: 'varchar',
     length: 36,
-    nullable: true
+    nullable: true,
   })
-    mode: AirconMode
+  mode: AirconMode;
 
   @Column({
     type: 'varchar',
     length: 36,
-    nullable: true
+    nullable: true,
   })
-    fanSpeed: FanSpeed
+  fanSpeed: FanSpeed;
 
   @Column({
     type: 'varchar',
     length: 36,
-    nullable: true
+    nullable: true,
   })
-    power: Power
+  power: Power;
 }

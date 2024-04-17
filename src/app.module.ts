@@ -21,8 +21,8 @@ import { AirconDeviceStatusController } from './presentation/AirconDeviceStatus.
     TypeOrmModule.forRoot({
       type: 'mysql',
       database: 'test',
-      username: 'test',
-      password: 'mysqlpassword',
+      username: 'root',
+      password: 'slsddbwls4421',
       entities: [
         AirconDeviceStatusEntity,
         AmiStatusEntity,

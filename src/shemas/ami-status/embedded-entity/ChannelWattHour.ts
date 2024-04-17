@@ -1,24 +1,24 @@
-import { Column } from 'typeorm'
+import { Column } from 'typeorm';
 
 export class ChannelWattHour {
   @Column({
     name: '1',
     type: 'float',
-    nullable: true
+    nullable: true,
   })
-    wattHour1: number
+  wattHour1: number;
 
   @Column({
     name: '2',
     type: 'float',
-    nullable: true
+    nullable: true,
   })
-    wattHour2: number
+  wattHour2: number;
 
   @Column({
     name: '3',
     type: 'float',
-    nullable: true
+    nullable: true,
   })
-    wattHour3: number
+  wattHour3: number;
 }
