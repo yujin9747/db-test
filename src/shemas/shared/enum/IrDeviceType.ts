@@ -1,3 +1,3 @@
 export enum IrDeviceType {
-  AIRCONDITIONER_CONTROLLER = '에어컨',
+  AIRCONDITIONER_CONTROLLER = '에어컨'
 }

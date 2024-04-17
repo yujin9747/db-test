@@ -1,19 +1,23 @@
-import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
 
-import { IrDeviceType } from '../shared/enum/IrDeviceType';
+import { IrDeviceType } from '../shared/enum/IrDeviceType'
 
 @Entity('ir_type_model')
-@Index(['type', 'model'], { unique: true })
 export class IrTypeModelEntity {
   @PrimaryGeneratedColumn()
-  id: number;
+    id: number
 
   @Column({
-    type: 'enum',
-    enum: IrDeviceType,
+    type: 'varchar',
+    length: 64,
+    nullable: false
   })
-  type: IrDeviceType;
+    type: IrDeviceType
 
-  @Column()
-  model: string;
+  @Column({
+    type: 'varchar',
+    length: 64,
+    nullable: false
+  })
+    model: string
 }
